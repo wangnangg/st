@@ -31,6 +31,8 @@ st: $(OBJ)
 
 clean:
 	rm -f st $(OBJ) st-$(VERSION).tar.gz
+	rm -f *.pkg.tar.xz
+	rm -rf src pkg
 
 dist: clean
 	mkdir -p st-$(VERSION)
