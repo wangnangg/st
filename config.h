@@ -8,10 +8,7 @@
 static char *font = "monospace:pixelsize=18:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
-	"PowerlineSymbols:style=Medium:pixelsize=18:antialias=true:autohint=true",
-	"FontAwesome5Free:style=Solid:pixelsize=18",
-	"FontAwesome5Brands:style=Solid:pixelsize=18"
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+	"HurmitNerdFontMono:style=medium:pixelsize=18:antialias=true:autohint=true"
 };
 
 static int borderpx = 2;
