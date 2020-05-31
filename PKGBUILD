@@ -5,7 +5,7 @@
 
 # Maintainer: Your Name <youremail@domain.com>
 pkgname=st-wangnangg
-pkgver=1.0
+pkgver=2.0
 pkgrel=1
 epoch=
 pkgdesc=""

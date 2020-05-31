@@ -186,6 +186,7 @@ MouseKey mkeys[] = {
 
 /* Internal keyboard shortcuts. */
 static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
+static char *editscreen[] = { "/bin/sh", "-c", "st-editscreen", "externalpipe", NULL };
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -206,6 +207,7 @@ static Shortcut shortcuts[] = {
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	{ MODKEY,               XK_o,   	externalpipe,   {.v =  copyoutput} },
+	{ MODKEY,               XK_e,   	externalpipe,   {.v =  editscreen} },
 };
 
 /*
