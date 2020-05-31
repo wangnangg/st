@@ -112,7 +112,7 @@ static const char *colorname[] = {
   "#b48ead", /* magenta */
   "#8fbcbb", /* cyan    */
   "#eceff4", /* white   */
-  
+
   [255] = 0,
   /* special colors */
   "#2e3440", /* background */
@@ -185,6 +185,7 @@ MouseKey mkeys[] = {
 
 
 /* Internal keyboard shortcuts. */
+static char *copyoutput[] = { "/bin/sh", "-c", "st-copyout", "externalpipe", NULL };
 
 static Shortcut shortcuts[] = {
 	/* mask                 keysym          function        argument */
@@ -204,6 +205,7 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_j,   	kscrolldown,    {.i =  5} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
+	{ MODKEY,               XK_o,   	externalpipe,   {.v =  copyoutput} },
 };
 
 /*
