@@ -35,7 +35,7 @@
 #define ESC_ARG_SIZ   16
 #define STR_BUF_SIZ   ESC_BUF_SIZ
 #define STR_ARG_SIZ   ESC_ARG_SIZ
-#define HISTSIZE      20000
+#define HISTSIZE      10000
 
 /* macros */
 #define IS_SET(flag)		((term.mode & (flag)) != 0)
@@ -46,7 +46,7 @@
 #define TLINE(y)		((y) < term.scr ? term.hist[((y) + term.histi - \
 				term.scr + HISTSIZE + 1) % HISTSIZE] : \
 				term.line[(y) - term.scr])
-#define TLINE_HIST(y)           ((y) <= HISTSIZE-term.row+2 ? term.hist[(y)] : term.line[(y-HISTSIZE+term.row-3)])
+#define TLINE_HIST(y)           ((y) < HISTSIZE ? term.hist[((y)+term.histi+1)%HISTSIZE] : term.line[(y-HISTSIZE)])
 
 enum term_mode {
 	MODE_WRAP        = 1 << 0,
@@ -1161,6 +1161,7 @@ tscrollup(int orig, int n, int copyhist)
 		temp = term.hist[term.histi];
 		term.hist[term.histi] = term.line[orig];
 		term.line[orig] = temp;
+		printf("up: %d\n", term.histi);
 	}
 
 	if (term.scr > 0 && term.scr < HISTSIZE)
@@ -2722,7 +2723,7 @@ externalpipe(const Arg *arg)
 	/* ignore sigpipe for now, in case child exists early */
 	oldsigpipe = signal(SIGPIPE, SIG_IGN);
 	newline = 0;
-	for (n = 0; n <= HISTSIZE + 2; n++) {
+	for (n = 0; n < HISTSIZE + term.row; n++) {
 		bp = TLINE_HIST(n);
 		lastpos = MIN(tlinehistlen(n) + 1, term.col) - 1;
 		if (lastpos < 0)
