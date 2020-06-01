@@ -8,3 +8,4 @@ added features:
 3. install script for pacman
 4. nord color theme
 5. fallback font
+6. externalpipe (copy output and edit screen)
