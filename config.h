@@ -5,10 +5,10 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "monospace:pixelsize=18:antialias=true:autohint=true";
+static char *font = "monospace:pixelsize=18:antialias=true:autohint=false";
 /* Spare fonts */
 static char *font2[] = {
-	"HurmitNerdFontMono:style=medium:pixelsize=18:antialias=true:autohint=true"
+	"HurmitNerdFontMono:style=medium:pixelsize=18:antialias=true:autohint=false"
 };
 
 static int borderpx = 2;
